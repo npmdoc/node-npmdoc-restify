@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"restify",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "restify",
+    "description": "api documentation for [restify (v4.3.0)](http://restifyjs.com) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-restify.svg)](https://travis-ci.org/npmdoc/node-npmdoc-restify)",
     "devDependencies": {
-        "restify": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "restify": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-restify",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-restify",
+    "keywords": [
+        "documentation",
+        "restify"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_restify.js",
+    "name": "npmdoc-restify",
+    "nameAlias": "npmdoc_restify",
+    "nameOriginal": "npmdoc-restify",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-restify.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
