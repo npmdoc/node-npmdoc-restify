@@ -939,12 +939,6 @@
 
         <li>
 
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">restify.</span>clients</span>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">restify.</span>dtrace</span>
 
         </li>
@@ -3071,37 +3065,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.restify.bunyan.serializers.res">
             function <span class="apidocSignatureSpan">restify.bunyan.serializers.</span>res
             <span class="apidocSignatureSpan">(res)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.restify.clients">module restify.clients</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.restify.clients.HttpClient">
-            function <span class="apidocSignatureSpan">restify.clients.</span>HttpClient
-            <span class="apidocSignatureSpan">(options)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.restify.clients.JsonClient">
-            function <span class="apidocSignatureSpan">restify.clients.</span>JsonClient
-            <span class="apidocSignatureSpan">(options)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.restify.clients.StringClient">
-            function <span class="apidocSignatureSpan">restify.clients.</span>StringClient
-            <span class="apidocSignatureSpan">(options)</span>
             </a>
 
         </li>
@@ -8297,8 +8260,6 @@ server.get(&#x27;/echo/:name&#x27;, function (req, res, next) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-
-
 
 
 
@@ -14185,200 +14146,6 @@ if (log.trace()) {
         statusCode: res.statusCode,
         header: res._header
     }
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.restify.clients" id="apidoc.module.restify.clients">module restify.clients</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.restify.clients.HttpClient" id="apidoc.element.restify.clients.HttpClient">
-        function <span class="apidocSignatureSpan">restify.clients.</span>HttpClient
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function HttpClient(options) {
-    assert.object(options, &#x27;options&#x27;);
-    assert.optionalObject(options.headers, &#x27;options.headers&#x27;);
-    assert.object(options.log, &#x27;options.log&#x27;);
-    assert.optionalFunc(options.signRequest, &#x27;options.signRequest&#x27;);
-    assert.optionalString(options.socketPath, &#x27;options.socketPath&#x27;);
-    assert.optionalString(options.url, &#x27;options.url&#x27;);
-
-    EventEmitter.call(this);
-
-    var self = this;
-
-    this.agent = options.agent;
-    this.ca = options.ca;
-    this.cert = options.cert;
-    this.ciphers = options.ciphers;
-    this.connectTimeout = options.connectTimeout || false;
-    this.requestTimeout = options.requestTimeout || false;
-    this.headers = options.headers || {};
-    this.log = options.log;
-
-    if (!this.log.serializers) {
-        // Ensure logger has a reasonable serializer for `client_res`
-        // and `client_req` logged in this module.
-        this.log = this.log.child({serializers: bunyan.serializers});
-    }
-    this.key = options.key;
-    this.name = options.name || &#x27;HttpClient&#x27;;
-    this.passphrase = options.passphrase;
-    this.pfx = options.pfx;
-
-    if (options.rejectUnauthorized !== undefined) {
-        this.rejectUnauthorized = options.rejectUnauthorized;
-    } else {
-        this.rejectUnauthorized = true;
-    }
-
-    this.retry = cloneRetryOptions(options.retry);
-    this.signRequest = options.signRequest || false;
-    this.socketPath = options.socketPath || false;
-    this.url = options.url ? url.parse(options.url) : {};
-
-    if (process.env.https_proxy) {
-        this.proxy = url.parse(process.env.https_proxy);
-    } else if (process.env.http_proxy) {
-        this.proxy = url.parse(process.env.http_proxy);
-    } else if (options.proxy) {
-        this.proxy = options.proxy;
-    } else {
-        this.proxy = false;
-    }
-
-    if (this.proxy &#x26;&#x26; !isProxyForURL(self.url)) {
-        this.proxy = false;
-    }
-
-    if (options.accept) {
-        if (options.accept.indexOf(&#x27;/&#x27;) === -1) {
-            options.accept = mime.lookup(options.accept);
-        }
-
-        this.headers.accept = options.accept;
-    }
-
-    if (options.contentType) {
-        if (options.contentType.indexOf(&#x27;/&#x27;) === -1) {
-            options.type = mime.lookup(options.contentType);
-        }
-
-        this.headers[&#x27;content-type&#x27;] = options.contentType;
-    }
-
-    if (options.userAgent !== false) {
-        this.headers[&#x27;user-agent&#x27;] = options.userAgent ||
-            defaultUserAgent();
-    }
-
-    if (options.version) {
-        this.headers[&#x27;accept-version&#x27;] = options.version;
-    }
-
-    if (this.agent === undefined) {
-        var Agent;
-        var maxSockets;
-
-        if (this.proxy) {
-            if (this.url.protocol === &#x27;https:&#x27;) {
-                if (this.proxy.protocol === &#x27;https:&#x27;) {
-                    Agent = tunnelAgent.httpsOverHttps;
-                } else {
-                    Agent = tunnelAgent.httpsOverHttp;
-                }
-            } else {
-                if (this.proxy.protocol === &#x27;https:&#x27;) {
-                    Agent = tunnelAgent.httpOverHttps;
-                } else {
-                    Agent = tunnelAgent.httpOverHttp;
-                }
-            }
-        } else if (this.url.protocol === &#x27;https:&#x27;) {
-            Agent = KeepAliveAgentSecure;
-            maxSockets = httpsMaxSockets;
-        } else {
-            Agent = KeepAliveAgent;
-            maxSockets = httpMaxSockets;
-        }
-
-        if (this.proxy) {
-            this.agent = new Agent({
-                proxy: self.proxy,
-                rejectUnauthorized: self.rejectUnauthorized,
-                ca: self.ca
-            });
-        } else {
-            this.agent = new Agent({
-                cert: self.cert,
-                ca: self.ca,
-                ciphers: self.ciphers,
-                key: self.key,
-                maxSockets: maxSockets,
-
-                // require(&#x27;keep-alive-agent&#x27;)
-                maxKeepAliveRequests: 0,
-                maxKeepAliveTime: 0,
-
-                // native keepalive
-                keepAliveMsecs: 1000,
-                keepAlive: true,
-
-                passphrase: self.passp ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.restify.clients.JsonClient" id="apidoc.element.restify.clients.JsonClient">
-        function <span class="apidocSignatureSpan">restify.clients.</span>JsonClient
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function JsonClient(options) {
-    assert.object(options, &#x27;options&#x27;);
-
-    options.accept = &#x27;application/json&#x27;;
-    options.name = options.name || &#x27;JsonClient&#x27;;
-    options.contentType = &#x27;application/json&#x27;;
-
-    StringClient.call(this, options);
-
-    this._super = StringClient.prototype;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.restify.clients.StringClient" id="apidoc.element.restify.clients.StringClient">
-        function <span class="apidocSignatureSpan">restify.clients.</span>StringClient
-        <span class="apidocSignatureSpan">(options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function StringClient(options) {
-    assert.object(options, &#x27;options&#x27;);
-    assert.optionalObject(options.gzip, &#x27;options.gzip&#x27;);
-
-    options.accept = options.accept || &#x27;text/plain&#x27;;
-    options.name = options.name || &#x27;StringClient&#x27;;
-    options.contentType =
-        options.contentType || &#x27;application/x-www-form-urlencoded&#x27;;
-
-    HttpClient.call(this, options);
-    this.gzip = options.gzip;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>

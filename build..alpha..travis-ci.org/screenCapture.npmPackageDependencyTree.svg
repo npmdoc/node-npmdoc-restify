@@ -1,0 +1,76 @@
+<svg height="1166" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1166" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">10 megabytes installed</tspan>
+<tspan x="10" y="42"></tspan>
+<tspan x="10" y="58">node_modules</tspan>
+<tspan x="10" y="74">└─┬ restify@4.3.0 </tspan>
+<tspan x="10" y="90">  ├── assert-plus@0.1.5 </tspan>
+<tspan x="10" y="106">  ├─┬ backoff@2.5.0 </tspan>
+<tspan x="10" y="122">  │ └── precond@0.2.3 </tspan>
+<tspan x="10" y="138">  ├─┬ bunyan@1.8.10 </tspan>
+<tspan x="10" y="154">  │ ├── dtrace-provider@0.8.1 </tspan>
+<tspan x="10" y="170">  │ ├── moment@2.18.1 </tspan>
+<tspan x="10" y="186">  │ ├─┬ mv@2.1.1 </tspan>
+<tspan x="10" y="202">  │ │ ├─┬ mkdirp@0.5.1 </tspan>
+<tspan x="10" y="218">  │ │ │ └── minimist@0.0.8 </tspan>
+<tspan x="10" y="234">  │ │ ├── ncp@2.0.0 </tspan>
+<tspan x="10" y="250">  │ │ └─┬ rimraf@2.4.5 </tspan>
+<tspan x="10" y="266">  │ │   └─┬ glob@6.0.4 </tspan>
+<tspan x="10" y="282">  │ │     ├── inflight@1.0.6 </tspan>
+<tspan x="10" y="298">  │ │     ├─┬ minimatch@3.0.3 </tspan>
+<tspan x="10" y="314">  │ │     │ └─┬ brace-expansion@1.1.7 </tspan>
+<tspan x="10" y="330">  │ │     │   ├── balanced-match@0.4.2 </tspan>
+<tspan x="10" y="346">  │ │     │   └── concat-map@0.0.1 </tspan>
+<tspan x="10" y="362">  │ │     └── path-is-absolute@1.0.1 </tspan>
+<tspan x="10" y="378">  │ └── safe-json-stringify@1.0.4 </tspan>
+<tspan x="10" y="394">  ├─┬ csv@0.4.6 </tspan>
+<tspan x="10" y="410">  │ ├── csv-generate@0.0.6 </tspan>
+<tspan x="10" y="426">  │ ├── csv-parse@1.2.0 </tspan>
+<tspan x="10" y="442">  │ ├── csv-stringify@0.0.8 </tspan>
+<tspan x="10" y="458">  │ └── stream-transform@0.1.2 </tspan>
+<tspan x="10" y="474">  ├─┬ dtrace-provider@0.6.0 </tspan>
+<tspan x="10" y="490">  │ └── nan@2.6.1 </tspan>
+<tspan x="10" y="506">  ├── escape-regexp-component@1.0.2 </tspan>
+<tspan x="10" y="522">  ├── formidable@1.1.1 </tspan>
+<tspan x="10" y="538">  ├─┬ http-signature@0.11.0 </tspan>
+<tspan x="10" y="554">  │ ├── asn1@0.1.11 </tspan>
+<tspan x="10" y="570">  │ └── ctype@0.5.3 </tspan>
+<tspan x="10" y="586">  ├── keep-alive-agent@0.0.1 </tspan>
+<tspan x="10" y="602">  ├─┬ lru-cache@4.0.2 </tspan>
+<tspan x="10" y="618">  │ ├── pseudomap@1.0.2 </tspan>
+<tspan x="10" y="634">  │ └── yallist@2.1.2 </tspan>
+<tspan x="10" y="650">  ├── mime@1.3.4 </tspan>
+<tspan x="10" y="666">  ├── negotiator@0.6.1 </tspan>
+<tspan x="10" y="682">  ├── node-uuid@1.4.8 </tspan>
+<tspan x="10" y="698">  ├─┬ once@1.4.0 </tspan>
+<tspan x="10" y="714">  │ └── wrappy@1.0.2 </tspan>
+<tspan x="10" y="730">  ├── qs@6.4.0 </tspan>
+<tspan x="10" y="746">  ├── semver@4.3.6 </tspan>
+<tspan x="10" y="762">  ├─┬ spdy@3.4.4 </tspan>
+<tspan x="10" y="778">  │ ├─┬ debug@2.6.3 </tspan>
+<tspan x="10" y="794">  │ │ └── ms@0.7.2 </tspan>
+<tspan x="10" y="810">  │ ├── handle-thing@1.2.5 </tspan>
+<tspan x="10" y="826">  │ ├── http-deceiver@1.2.7 </tspan>
+<tspan x="10" y="842">  │ ├── select-hose@2.0.0 </tspan>
+<tspan x="10" y="858">  │ └─┬ spdy-transport@2.0.18 </tspan>
+<tspan x="10" y="874">  │   ├─┬ hpack.js@2.1.6 </tspan>
+<tspan x="10" y="890">  │   │ └── inherits@2.0.3 </tspan>
+<tspan x="10" y="906">  │   ├── obuf@1.1.1 </tspan>
+<tspan x="10" y="922">  │   ├─┬ readable-stream@2.2.8 </tspan>
+<tspan x="10" y="938">  │   │ ├── buffer-shims@1.0.0 </tspan>
+<tspan x="10" y="954">  │   │ ├── isarray@1.0.0 </tspan>
+<tspan x="10" y="970">  │   │ ├── process-nextick-args@1.0.7 </tspan>
+<tspan x="10" y="986">  │   │ ├── string_decoder@1.0.0 </tspan>
+<tspan x="10" y="1002">  │   │ └── util-deprecate@1.0.2 </tspan>
+<tspan x="10" y="1018">  │   └─┬ wbuf@1.7.2 </tspan>
+<tspan x="10" y="1034">  │     └── minimalistic-assert@1.0.0 </tspan>
+<tspan x="10" y="1050">  ├── tunnel-agent@0.4.3 </tspan>
+<tspan x="10" y="1066">  ├─┬ vasync@1.6.3 </tspan>
+<tspan x="10" y="1082">  │ └── verror@1.6.0 </tspan>
+<tspan x="10" y="1098">  └─┬ verror@1.9.0 </tspan>
+<tspan x="10" y="1114">    ├── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="1130">    ├── core-util-is@1.0.2 </tspan>
+<tspan x="10" y="1146">    └── extsprintf@1.2.0</tspan>
+</text>
+</svg>
