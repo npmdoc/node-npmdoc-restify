@@ -30,7 +30,7 @@
 <tspan x="10" y="442">  │ ├── csv-stringify@0.0.8 </tspan>
 <tspan x="10" y="458">  │ └── stream-transform@0.1.2 </tspan>
 <tspan x="10" y="474">  ├─┬ dtrace-provider@0.6.0 </tspan>
-<tspan x="10" y="490">  │ └── nan@2.6.1 </tspan>
+<tspan x="10" y="490">  │ └── nan@2.6.2 </tspan>
 <tspan x="10" y="506">  ├── escape-regexp-component@1.0.2 </tspan>
 <tspan x="10" y="522">  ├── formidable@1.1.1 </tspan>
 <tspan x="10" y="538">  ├─┬ http-signature@0.11.0 </tspan>
@@ -57,7 +57,7 @@
 <tspan x="10" y="874">  │   ├─┬ hpack.js@2.1.6 </tspan>
 <tspan x="10" y="890">  │   │ └── inherits@2.0.3 </tspan>
 <tspan x="10" y="906">  │   ├── obuf@1.1.1 </tspan>
-<tspan x="10" y="922">  │   ├─┬ readable-stream@2.2.8 </tspan>
+<tspan x="10" y="922">  │   ├─┬ readable-stream@2.2.9 </tspan>
 <tspan x="10" y="938">  │   │ ├── buffer-shims@1.0.0 </tspan>
 <tspan x="10" y="954">  │   │ ├── isarray@1.0.0 </tspan>
 <tspan x="10" y="970">  │   │ ├── process-nextick-args@1.0.7 </tspan>
